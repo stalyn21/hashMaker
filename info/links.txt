@@ -1,0 +1,30 @@
+-------- Book online ------
+* https://www.packtpub.com/big-data-and-business-intelligence/blockchain-example
+* https://davidederosa.com/basic-blockchain-programming/
+
+---------- Enlaces ---------
+* https://blog.openzeppelin.com/evolution-of-smart-contract-security-in-the-ethereum-ecosystem/
+* https://blockchainlibrary.org/category/academic-publications/
+
+---------- papers repository ---------
+* https://github.com/decrypto-org/blockchain-papers#block-generation-parameters
+
+---------- repositories used -----
+#1
+* Teacher code 
+#2
+* https://github.com/Rytisgit/Hashing (main)
+* https://github.com/Rytisgit/BlockChain 
+#3 
+
+----------- view this code -----
+* https://github.com/peakstack/Simple-Blockchain (implemented)
+* https://github.com/Syedateeq160/Future-Intelligence (possible implementation)
+* https://github.com/tko22/simple-blockchain
+
+------------ extra ------
+* https://books.google.com.ec/books?id=MLd9CAAAQBAJ&pg=PA188&lpg=PA188&dq=nonce+hashin+fast&source=bl&ots=COaJMg-0DC&sig=ACfU3U2xwPccYqEjD7Ka8c1L1iNga2qBfQ&hl=es-419&sa=X&ved=2ahUKEwjH46GZx8fpAhWiVN8KHTU_DdQQ6AEwAHoECAkQAQ#v=onepage&q=nonce%20hashin%20fast&f=false
+* http://www.nicolascourtois.com/bitcoin/Optimising%20the%20SHA256%20Hashing%20Algorithm%20for%20Faster%20and%20More%20Efficient%20Bitcoin%20Mining_Rahul_Naik.pdf
+* https://books.google.com.ec/books?id=QWQRSTnkFsQC&pg=SA4-PA4&lpg=SA4-PA4&dq=nonce+ethical&source=bl&ots=wKXQ11x8J6&sig=ACfU3U2zgvmoMLra7tjmx4LmZy-pMBbiyg&hl=es-419&sa=X&ved=2ahUKEwiuxc2SyMfpAhUxWN8KHZuEAjEQ6AEwAXoECAsQAQ#v=onepage&q=nonce%20ethical&f=false
+https://www.researchgate.net/publication/220905265_Nonce_Generators_and_the_Nonce_Reset_Problem
+
