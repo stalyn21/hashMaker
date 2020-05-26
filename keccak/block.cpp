@@ -1,4 +1,5 @@
 #include "block.h"
+int count=0;
 
 void block::mine(uint_fast64_t difficulty)
 {
@@ -17,11 +18,16 @@ void block::mine(uint_fast64_t difficulty)
 
     do
     {
-        ++m_nonce;
-        m_hash = calculate_hash();
+        ++m_nonce;        
+        m_hash = calculate_hash();        
     }
     while (m_hash.substr(0, difficulty) != hash_string);
-    std::cout << "block mined: " << m_hash.c_str() << std::endl;
+
+    if (count != 0){
+        std::cout << "nonce: " << m_nonce << std::endl;
+        std::cout << "hash " << count << ": "<< m_hash.c_str() << std::endl;     
+    }
+    count++;
 }
 
 std::string block::calculate_hash()
@@ -31,7 +37,7 @@ std::string block::calculate_hash()
     string_stream << m_previous_block->m_hash;
     string_stream << m_timestamp;
     string_stream << m_nonce;
-    Keccak keccak;
+    Keccak keccak;  
     return keccak(string_stream.str());
 }
 
