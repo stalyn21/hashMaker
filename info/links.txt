@@ -16,9 +16,10 @@
 * https://github.com/Rytisgit/Hashing (main)
 * https://github.com/Rytisgit/BlockChain 
 #3 
+* https://github.com/peakstack/Simple-Blockchain (implemented)
+* https://keccak.team/keccak_specs_summary.html (doc keccak)
 
 ----------- view this code -----
-* https://github.com/peakstack/Simple-Blockchain (implemented)
 * https://github.com/Syedateeq160/Future-Intelligence (possible implementation)
 * https://github.com/tko22/simple-blockchain
 
