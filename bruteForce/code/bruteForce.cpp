@@ -6,7 +6,6 @@
 char hex_number[]= "0123456789abcdef",plaintext[1000], out_text[1000], new_hash[20], hash_aux[20];
 int hash_frame[]={0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,0,1,2,3,4}, hash_out[20];
 int nib_0, nib_1,text_pointer,hash_pointer,temp,plaintext_lenght,zero_count,sum; 
- 
 //-----------------------------------
 #include <iostream>
 #include <cstring>
@@ -51,57 +50,55 @@ int zero_counter(void)
    int i=0;
    zero_count=0;
        
-    if(hash_out[0]==0) zero_count++;  
+    if((hash_out[0]==0)&&(hash_out[1]==0)&&(hash_out[2]==0)&&(hash_out[3]==0)&&(hash_out[4]==0)) zero_count++;     
    
-     for(i=1;i<20;i++)
-     {
-      if((hash_out[i-1]==0)&&(hash_out[i]==0 )) zero_count++;
-      else break;      
-     }
-    cout << "-zeros_counter-----"<<zero_count <<endl;      
-   
-    if(zero_count>=2)    //    Grado de dificultad del proof of work
-            {
-             write_hash_found_1();   
-             cout << "-Proof of work found ! -----" <<endl;      
-             sleep (5);  
-             return 1;
-            }
+    if(zero_count>=1) return 1;   //    Grado de dificultad del proof of work    
+             
     return 0;
 }
 //-------------------------------------------
 void hash_loop(void)
 {
-    long int counter=0;
+    long int counter=0, proof=0;
    
     do
     {
-        system("cls");
+        //system("cls");
         counter++;
-        cout<< "CONTADOR "<<counter<< endl<< endl;
+        //cout<< "CONTADOR "<<counter<< endl<< endl;
         hash_maker();        
         nonce_filler();        
-        if (zero_counter()==1) break;
+        if (zero_counter()==1) {
+          cout<<"noce: "<<pnonce;
+          cout<<"hash: ";
+          for(int j=0;j<20;j++)cout << hex_number[hash_out[j]]; //  imprime hash en HEX    
+          cout<<endl;
+          proof++;
+        }
+        if(proof==3) break;
     }while(1);
-    sleep(1);
 }
 
 //-------------------------------------------
 int main(void)
 {
-    int i;
+    int i, t0, t1;
     load_block_0();   //read block
     
     cout<<"HASH FRAME "<<endl;
     for(i=0;i<20;i++)cout << hash_frame[i]<<" ";  //  to print the hash in digital
-    cout << endl;
-    cout << "-------------\n";
-    cout <<plaintext << endl;   cout << "-------------\n"; 
-  
+    cout << endl << endl;
+    //cout << "-------------\n";
+    //cout <<plaintext << endl;   cout << "-------------\n"; 
     randomize();   
     plaintext_lenght = strlen(plaintext);
     text_pointer=0;
+    //tiempo
+    t0=clock();
     hash_loop();
+    t1=clock();
+    double time = (double(t1-t0)/CLOCKS_PER_SEC);
+    cout << "Run time: "<< time << " seconds " <<endl;
 }
 
 /* g++ compiler or gcc compler 

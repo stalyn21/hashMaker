@@ -1,5 +1,5 @@
 #define random(x) (lrand48() % x)
- char line_hash[40], merkle[40], timestamp[8], nBits[1], nonce[26], nonce_val[20];
+ char line_hash[40], merkle[40], timestamp[8], nBits[1], nonce[26], nonce_val[20],pnonce[1];
  unsigned char nibble[2];
 
  typedef struct Transaction
@@ -87,7 +87,6 @@ void hash_maker(void)
     int i,j;
     hash_pointer=0;
     j=0;  
-    cout << endl;  
     
     for(i=0;i<20;i++)
     {
@@ -121,13 +120,9 @@ void hash_maker(void)
         j++;
     }while(j<19);
     
-    cout << "-Hash Found-----" <<endl;
- 
-    for(i=0;i<20;i++)cout << hex_number[hash_out[i]]; //  imprime hash en HEX   
-    cout << endl;  
-    printf("\n");
+    //cout<<plaintext;  // se imprime el mensaje 
+    //cout<<endl; 
 }
-
 //-------------------------------------------------
 void nonce_filler(void)
 {
@@ -143,9 +138,7 @@ void nonce_filler(void)
     k = random(20);                  //  20 posiciones posibles  dentro de nonce
     temp[0] = random(95)+32;         //  se escoge un caracter ASCII aleatorio entre 32 "space"  y 126 "~"
     plaintext[i+k] = temp[0] ;       //  se guarda como char imprimible en el nonce
- 
-    cout<<plaintext;  // se imprime el mensaje 
-    cout<<endl;
+    pnonce[0] = temp[0];
 }
 //--------------------------------------------------------------------------
 //    3.58   10 exp 39      number of possible combination for the nonce
