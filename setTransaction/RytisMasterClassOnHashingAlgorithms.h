@@ -1,7 +1,3 @@
-//
-// Created by SuperPC on 10/1/2019.
-//
-
 #ifndef HASHING_RYTISMASTERCLASSONHASHINGALGORITHMS_H
 #define HASHING_RYTISMASTERCLASSONHASHINGALGORITHMS_H
 
@@ -43,15 +39,15 @@ int ror63(int toBits, unsigned int moves) {
     return (int) newSet.to_ulong();
 }
 
-std::string hash(const std::string &input) {
+std::string hash(const std::string &input) {//generacion del hash
     std::vector<int> passVector{};
     std::vector<int> tempVector{};
-    for (long double number : convertToASCII(input)) {
+    for (long double number : convertToASCII(input)) {//solamente toma los numero del hash que pertenezcan a un numero en el codigo ascii
         tempVector.clear();
-        long double temp = pow(number, 1 / 691.) * pow(10, 5);
+        long double temp = pow(number, 1 / 691.) * pow(10, 5);//la transformacion de la potencia
         temp -= (long double) (int) temp;
         int tempInt;
-        for (int i = 0; i < hashSize; i++) {
+        for (int i = 0; i < hashSize; i++) {//verifica si el parametro ingersado para el hash tenga un tamaño especifico 
             tempVector.push_back(tempInt = static_cast<int>(temp *= 100));
             temp -= (long double) tempInt;
         }
@@ -70,12 +66,19 @@ std::string hash(const std::string &input) {
         pass << goodChars[single];
     return pass.str();
 }
-std::vector<int> hashForCompare(const std::string &input) {
+//La cadena se lee y se convierte a códigos de número ASCII, con caracteres no ASCII ignorados.
+
+//Un número se eleva a la potencia de 1/619.
+
+//Luego de grupos de 3 dígitos. desde los dígitos fraccionales en bucle de regreso a menos de 64 (2 ^ 6) por módulo, el bit se desplazó con un bucle a la derecha y finalmente se usó para agregar al int actual del carácter y el módulo a menos de 64 nuevamente.
+
+//Cuando la cadena termina, los números se convierten en una representación de cadena haciendo referencia a una buena matriz de caracteres de tamaño 64.
+std::vector<int> hashForCompare(const std::string &input) {//este metodo compara los hash si tienen la propiedad de ser unicos y si no estan en el historial 
     std::vector<int> passVector{};
     std::vector<int> tempVector{};
-    for (long double number : convertToASCII(input)) {
+    for (long double number : convertToASCII(input)) {//utiliza el vector para comparar con el historial es bueno para que pueda ser unico y q no exista colisiones 
         tempVector.clear();
-        long double temp = pow(number, 1 / 691.) * pow(10, 5);
+        long double temp = pow(number, 1 / 691.) * pow(10, 5); //genera el tamaño correcto 
         temp -= (long double) (int) temp;
         int tempInt;
         for (int i = 0; i < hashSize; i++) {
@@ -96,7 +99,7 @@ std::vector<int> hashForCompare(const std::string &input) {
 }
 double HashComparer(std::string string1, std::string string2){
     int r = 0;
-    auto hash1{hashForCompare(string1)},hash2{hashForCompare(string2)};
+    auto hash1{hashForCompare(string1)},hash2{hashForCompare(string2)};//evitando la colision 
     for(int i = 0; i < hash1.size(); i++){
         std::bitset<6> b1(hash1.at(i));
         std::bitset<6> b2(hash2.at(i));

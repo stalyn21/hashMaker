@@ -1,7 +1,3 @@
-//
-// Created by SuperPC on 10/3/2019.
-//
-
 #ifndef HASHING_TIMER_H
 #define HASHING_TIMER_H
 
