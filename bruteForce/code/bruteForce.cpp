@@ -82,12 +82,15 @@ void hash_loop(void)
 //-------------------------------------------
 int main(void)
 {
-    int i, t0, t1;
+    int i;
+    long double t0, t1;
     load_block_0();   //read block
-    
+    std::cout << "------------------------------------------------------------------------ " << std::endl;
+    std::cout << "---------------------- Brute force algorithm --------------------------- " << std::endl;
+    std::cout << "------------------------------------------------------------------------ " << std::endl;
     cout<<"HASH FRAME "<<endl;
     for(i=0;i<20;i++)cout << hash_frame[i]<<" ";  //  to print the hash in digital
-    cout << endl << endl;
+    std::cout<< std::endl << "------------------------------------------------------------------------ " << std::endl;
     //cout << "-------------\n";
     //cout <<plaintext << endl;   cout << "-------------\n"; 
     randomize();   
@@ -97,7 +100,7 @@ int main(void)
     t0=clock();
     hash_loop();
     t1=clock();
-    double time = (double(t1-t0)/CLOCKS_PER_SEC);
+    long double time = (t1-t0)/CLOCKS_PER_SEC;
     cout << "Run time: "<< time << " seconds " <<endl;
 }
 
