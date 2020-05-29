@@ -25,7 +25,7 @@ Receiving a transaction doesn't affect the nonce. When a transaction is processe
 
 
 ### Keccak
-It is based on the sponge construction. In Keccak, the underlying function is a permutation chosen in a set of seven Keccak-f  permutations, denoted Keccak-f[b], where  b∈{25,50,100,200,400,800,1600} is the width of the permutation. The width of the permutation is also the width of the state in the sponge construction. All information about this, you can found in https://keccak.team/keccak_specs_summary.html
+It is based on the sponge construction. In Keccak, the underlying function is a permutation chosen in a set of seven Keccak-f  permutations, denoted Keccak-f[b], where  b∈{25,50,100,200,400,800,1600} is the width of the permutation. The width of the permutation is also the width of the state in the sponge construction. All information about this, you can found in it [here](https://keccak.team/keccak_specs_summary.html)
 
 ## General Issues
 
@@ -35,10 +35,30 @@ The nonce reset problem. While ensuring that nonces never repeat is trivial in t
 ### To avoid collisions (memory)
 The nonce length has to be large, which may be problematic particularly in light-weight cryptographic systems with limited memory or bandwidth.
 
-## An unexpected power-down 
+### An unexpected power-down 
 It can mean the loss of all information that was not stored in non-volatile memory (Virtual Memory), storing the nonce to Flash memory or a hard disk is not an option.
+
+## Result and discussions
+
+All times are just of the nonce and hash calculation. 
+
+![bruteFroce](https://github.com/stalyn21/hashMaker/blob/master/images/bruteForce.png)
+
+The magnitude of getting the nonce is based on brute force iteration after iteration
+
+![keccak](https://github.com/stalyn21/hashMaker/blob/master/images/keccak.png)
+
+The probability of getting such a nonce in polynomial time is low
+
+![setTransaction](https://github.com/stalyn21/hashMaker/blob/master/images/setTransaction.png)
+
+The fact that the method use an POW function increase the magnitude of the complexity problem, and if we adding the proofs that verify all process increase as you can see on the grafic. Most important the precursor of this method have efficiency if this is compared with every element of the queue that was generated
+
+![comparativeAlgorithms](https://github.com/stalyn21/hashMaker/blob/master/images/comparativeAlgorithms.png)
+
+It is easy to see the big difference but most important the difference that Keccak Algorithm implement to moving Bytes
+Increasing the power of generate the nonce.
 
 
 ## References
-All the information collected is here
-https://github.com/stalyn21/hashMaker/blob/master/info/links.txt 
+All the information collected is [here](https://github.com/stalyn21/hashMaker/blob/master/info/links.txt)
